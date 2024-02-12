@@ -26,6 +26,7 @@ function App() {
     } else {
       audioRef.current.pause();
     }
+    //hej
   }, [playSound]); 
   return (
     <div className="App bg-pink-300 relative">
