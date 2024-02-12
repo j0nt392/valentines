@@ -39,7 +39,7 @@ function App() {
         {!showButtons && (
           <>
           <h3 className='font-sans text-3xl z-10 text-white'>SEE YOU ON FEBRUARY 14</h3>
-          <audio ref={audioRef} src="onelove.mp3" type="audio/mpeg"></audio>
+          <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/onelove.mp3`} type="audio/mpeg"></audio>
           </>
         )}
         <div className='flex gap-x-10 pt-5'>
