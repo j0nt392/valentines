@@ -1,76 +1,9 @@
-// In App.js
-import { useState, useEffect } from 'react';
-import './output.css';
-import './App.css'
-import Button from './Button.js';
-import { gsap } from 'gsap';
-
-function App() {
-  const [showVideo1, setShowVideo1] = useState(false);
-  const [showVideo2, setShowVideo2] = useState(false);
-  const [showTickets, setShowTickets] = useState(false);
-  const [showButtons, setShowButtons] = useState(true)
-  useEffect(() => {
-    // Ensure GSAP animations target elements that have been rendered
-    gsap.to("#flower", { duration: 2, y: -300, opacity: 1 });
-    // Replace "#flower" with the actual ID or class of the elements you're animating
-  }, [showTickets]); // Empty dependency array means this effect runs once after initial render
-
-  return (
-    <div className="App bg-pink-300 relative">
-      <div className='flex flex-col justify-center items-center w-screen h-screen'>
-        {showButtons && (
-          <>
-          <h3 className='font-sans text-3xl z-10 text-white'>Will you be my valentine?</h3>
-          </>
-        )}
-        {!showButtons && (
-          <>
-          <h3 className='font-sans text-3xl z-10 text-white'>SEE YOU ON FEBRUARY 14</h3>
-          <audio src="onelove.mp3" autoPlay></audio>
-          </>
-        )}
-        <div className='flex gap-x-10 pt-5'>
-        {showButtons && (
-          <>
-          <Button name="yes" setShowButtons={setShowButtons} setShowVideo1={setShowVideo1} setShowVideo2={setShowVideo2} setShowTickets={setShowTickets}></Button>
-          <Button name="no" setShowButtons={setShowButtons} setShowVideo1={setShowVideo1} setShowVideo2={setShowVideo2} setShowTickets={setShowTickets}></Button>
-          </>
-        )}
-        </div>
-        {showVideo1 && (
-          <>
-            <video
-              className="absolute z-0 w-screen h-screen top-0 left-0 object-cover"
-              src="saddog.mp4"
-              autoPlay
-              loop
-              muted
-            ></video>
-            {/* Include other video here if needed */}
-          </>
-        )}
-        {showVideo2 && (
-          <>
-            <video
-              className="absolute z-0 w-screen h-screen top-0 left-0 object-cover"
-              src="awkwarddog.mp4"
-              autoPlay
-              loop
-              muted
-            ></video>
-            {/* Include other video here if needed */}
-          </>
-        )}
-        {showTickets && (
-          <>
-          <img className="shadow-xl rotate-[-12deg] absolute w-[28vw] top-20 left-20" src="tickets.png"></img>
-          <img className="shadow-xl rotate-12 absolute w-[20vw] top-20 right-20" src="onelove.jpg"></img>
-          
-
-        <svg version="1.0" id="flower" xmlns="http://www.w3.org/2000/svg"
-        width="300.000000pt" height="175.000000pt" viewBox="0 0 300.000000 175.000000"
-        preserveAspectRatio="xMidYMid meet">
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="flower" xmlns="http://www.w3.org/2000/svg"
+ width="300.000000pt" height="175.000000pt" viewBox="0 0 300.000000 175.000000"
+ preserveAspectRatio="xMidYMid meet">
 <metadata>
 Created by potrace 1.10, written by Peter Selinger 2001-2011
 </metadata>
@@ -442,11 +375,3 @@ c-33 31 -47 34 -57 10 -7 -20 35 -63 61 -63 10 0 14 -12 14 -40 0 -22 3 -40 8
 <path d="M27 44 c-14 -14 -6 -24 19 -24 16 0 24 5 22 13 -5 14 -31 21 -41 11z"/>
 </g>
 </svg>
-</>
-      )}
-      </div>
-    </div>
-  );
-}
-
-export default App;
