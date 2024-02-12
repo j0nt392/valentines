@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Button({ name, setShowVideo1, setShowVideo2, setShowTickets, setShowButtons }) {
+export default function Button({ setPlaySound, name, setShowVideo1, setShowVideo2, setShowTickets, setShowButtons }) {
   const [count, setCount] = useState(0);
   const [style, setStyle] = useState({
     top: 0,
@@ -35,6 +35,7 @@ export default function Button({ name, setShowVideo1, setShowVideo2, setShowTick
       setShowVideo2(false);
       setShowTickets(true);
       setShowButtons(false);
+      setPlaySound(true);
       console.log("gmm");
     }
   };

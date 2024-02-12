@@ -10,12 +10,23 @@ function App() {
   const [showVideo2, setShowVideo2] = useState(false);
   const [showTickets, setShowTickets] = useState(false);
   const [showButtons, setShowButtons] = useState(true)
+  const [playSound, setPlaySound] = useState(false)
+  const audioRef = useRef(null); // Initialize the ref
+
   useEffect(() => {
     // Ensure GSAP animations target elements that have been rendered
     gsap.to("#flower", { duration: 2, y: -300, opacity: 1 });
     // Replace "#flower" with the actual ID or class of the elements you're animating
   }, [showTickets]); // Empty dependency array means this effect runs once after initial render
 
+  useEffect(() => {
+    // This effect toggles the playback based on playSound state
+    if (playSound) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [playSound]); 
   return (
     <div className="App bg-pink-300 relative">
       <div className='flex flex-col justify-center items-center w-screen h-screen'>
@@ -27,14 +38,14 @@ function App() {
         {!showButtons && (
           <>
           <h3 className='font-sans text-3xl z-10 text-white'>SEE YOU ON FEBRUARY 14</h3>
-          <audio src="onelove.mp3" type="audio/mpeg" controls></audio>
+          <audio ref={audioRef} src="onelove.mp3" type="audio/mpeg"></audio>
           </>
         )}
         <div className='flex gap-x-10 pt-5'>
         {showButtons && (
           <>
-          <Button name="yes" setShowButtons={setShowButtons} setShowVideo1={setShowVideo1} setShowVideo2={setShowVideo2} setShowTickets={setShowTickets}></Button>
-          <Button name="no" setShowButtons={setShowButtons} setShowVideo1={setShowVideo1} setShowVideo2={setShowVideo2} setShowTickets={setShowTickets}></Button>
+          <Button name="yes" setPlaySound={setPlaySound} setShowButtons={setShowButtons} setShowVideo1={setShowVideo1} setShowVideo2={setShowVideo2} setShowTickets={setShowTickets}></Button>
+          <Button name="no" setPlaySound={setPlaySound} setShowButtons={setShowButtons} setShowVideo1={setShowVideo1} setShowVideo2={setShowVideo2} setShowTickets={setShowTickets}></Button>
           </>
         )}
         </div>
