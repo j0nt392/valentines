@@ -27,7 +27,7 @@ function App() {
         {!showButtons && (
           <>
           <h3 className='font-sans text-3xl z-10 text-white'>SEE YOU ON FEBRUARY 14</h3>
-          <audio src="onelove.mp3" autoPlay></audio>
+          <audio src="onelove.mp3" type="audio/mpeg" controls></audio>
           </>
         )}
         <div className='flex gap-x-10 pt-5'>
@@ -66,8 +66,6 @@ function App() {
           <>
           <img className="shadow-xl rotate-[-12deg] absolute w-[28vw] top-20 left-20" src="tickets.png"></img>
           <img className="shadow-xl rotate-12 absolute w-[20vw] top-20 right-20" src="onelove.jpg"></img>
-          
-
         <svg version="1.0" id="flower" xmlns="http://www.w3.org/2000/svg"
         width="300.000000pt" height="175.000000pt" viewBox="0 0 300.000000 175.000000"
         preserveAspectRatio="xMidYMid meet">
