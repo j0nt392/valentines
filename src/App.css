@@ -1,6 +1,11 @@
-#flower {
+#poster {
   position: absolute;
   bottom: -300px; /* Start below the screen */
+   /* Center or choose your positioning */
+}
+#tickets {
+  position: absolute;
+  top: -300px; /* Start below the screen */
    /* Center or choose your positioning */
 }
 *{
