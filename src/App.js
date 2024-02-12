@@ -1,5 +1,5 @@
 // In App.js
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './output.css';
 import './App.css'
 import Button from './Button.js';
@@ -24,7 +24,7 @@ function App() {
     if (playSound) {
       audioRef.current.play();
     } else {
-      audioRef.current.pause();
+      //audioRef.current.pause();
     }
     //hej
   }, [playSound]); 
